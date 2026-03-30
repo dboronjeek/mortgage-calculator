@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalkulator stambenog kredita</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main class="main-container">
+      <div class="calculator-card">
+        <section class="left-pane">
+          <div class="pane-header">
+            <h1>Kalkulator kredita</h1>
+            <button type="button" id="clear-all">Očisti sve</button>
+          </div>
+
+          <form id="mortgage-form" novalidate>
+            <div class="field-group" id="amount-field">
+              <label for="amount">Iznos kredita</label>
+              <div class="input-box">
+                <span class="decorator">€</span>
+                <input type="number" id="amount" />
+              </div>
+              <span class="error-text">Ovo polje je obavezno</span>
+            </div>
+
+            <div class="grid-row">
+              <div class="field-group" id="term-field">
+                <label for="term">Rok otplate</label>
+                <div class="input-box reverse">
+                  <span class="decorator">godina</span>
+                  <input type="number" id="term" />
+                </div>
+                <span class="error-text">Obavezno</span>
+              </div>
+              <div class="field-group" id="rate-field">
+                <label for="rate">Kamatna stopa</label>
+                <div class="input-box reverse">
+                  <span class="decorator">%</span>
+                  <input type="number" step="0.01" id="rate" />
+                </div>
+                <span class="error-text">Obavezno</span>
+              </div>
+            </div>
+
+            <div class="field-group" id="type-field">
+              <label>Vrsta kredita</label>
+              <label class="radio-card" for="repayment">
+                <input
+                  type="radio"
+                  name="m-type"
+                  id="repayment"
+                  value="repayment"
+                />
+                <span>Otplata (Glavnica + Kamata)</span>
+              </label>
+              <label class="radio-card" for="interest-only">
+                <input
+                  type="radio"
+                  name="m-type"
+                  id="interest-only"
+                  value="interest-only"
+                />
+                <span>Samo kamata</span>
+              </label>
+              <span class="error-text">Odaberite vrstu kredita</span>
+            </div>
+
+            <button type="submit" class="submit-btn">
+              <img src="assets/images/icon-calculator.svg" alt="" />
+              Izračunaj rate
+            </button>
+          </form>
+        </section>
+
+        <section class="right-pane" id="results-pane">
+          <div class="empty-view" id="empty-view">
+            <img src="assets/images/illustration-empty.svg" alt="" />
+            <h2>Rezultati će se pojaviti ovdje</h2>
+            <p>
+              Ispunite formu i kliknite na "Izračunaj rate" kako biste vidjeli
+              mjesečnu otplatu i ukupni iznos.
+            </p>
+          </div>
+
+          <div class="results-view hidden" id="results-view">
+            <h2>Vaši rezultati</h2>
+            <p>
+              Rezultati su prikazani u nastavku na temelju podataka koje ste
+              unijeli.
+            </p>
+            <div class="summary-card">
+              <div class="monthly-stat">
+                <small>Vaša mjesečna rata</small>
+                <span id="monthly-val">€0,00</span>
+              </div>
+              <hr />
+              <div class="total-stat">
+                <small>Ukupno za otplatu</small>
+                <p id="total-val">€0,00</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script src="js/script.js"></script>
+  </body>
+</html>
